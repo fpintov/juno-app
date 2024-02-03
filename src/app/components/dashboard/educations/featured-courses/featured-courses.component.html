@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Featured Courses</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown17" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0 featured-table">
+    <div class="table-responsive theme-scrollbar">
+      <div class="dataTables_wrapper no-footer">
+        <table class="table display dataTable no-footer" id="featured-table" style="width:100%">
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Start</th>
+              <th>Rate</th>
+              <th>Type</th>
+              <th>Save</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of featuredCourses; track item) {
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="flex-shrink-0">
+                      <img [src]="item.image" alt="">
+                    </div>
+                    <div class="flex-grow-1">
+                      <a [routerLink]="['/ecommerce/product-page']">
+                        <h5>{{item.title}}</h5>
+                      </a><span>{{item.subTitle}}</span>
+                    </div>
+                  </div>
+                </td>
+                <td>{{item.start}}</td>
+                <td> <span class="d-flex align-item-center gap-2 font-primary">
+                    <app-feather-icons [icons]="'star'" [class]="'font-primary'"></app-feather-icons>
+                    {{item.starValue}}</span>
+                </td>
+                <td>{{item.type}}</td>
+                <td [ngClass]="item.status ? 'clicked-color' :'initial-color'" id="colorChangeButton"
+                  (click)="bookMarkItem(item.id)">
+                  <app-feather-icons [icons]="'bookmark'"></app-feather-icons>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

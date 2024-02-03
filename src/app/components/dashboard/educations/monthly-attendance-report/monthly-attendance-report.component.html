@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header card-no-border pb-0">
+      <div class="header-top">
+        <h4>Monthly  Attendance Report (Feb)</h4>
+        <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+          <button class="btn dropdown-toggle" id="userdropdown18" type="button" (click)="isShow = !isShow">
+            <i class="icon-more-alt"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+            <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Yearly</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body pb-0">
+      <div class="monthly-report">
+        <ul class="d-flex align-item-center gap-2">
+          <li> <span class="bg-primary"> </span>Teacher</li>
+          <li> <span class="bg-secondary"> </span>Student</li>
+        </ul>
+      </div>
+      <div id="monthly-reportchart">
+        <apx-chart
+        [series]="monthlyReportchart.series"
+        [chart]="monthlyReportchart.chart"
+        [stroke]="monthlyReportchart.stroke"
+        [grid]="monthlyReportchart.grid"
+        [dataLabels]="monthlyReportchart.dataLabels"
+        [fill]="monthlyReportchart.fill"
+        [markers]="monthlyReportchart.markers"
+        [plotOptions]="monthlyReportchart.plotOptions"
+        [colors]="monthlyReportchart.colors"
+        [legend]="monthlyReportchart.legend"
+        [labels]="monthlyReportchart.labels"
+        [xaxis]="monthlyReportchart.xaxis"
+        [yaxis]="monthlyReportchart.yaxis"
+        >
+       </apx-chart>
+      </div>
+    </div>
+  </div>

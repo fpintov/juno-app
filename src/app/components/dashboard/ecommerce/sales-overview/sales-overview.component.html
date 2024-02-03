@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Sales Overview</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown6" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body pt-0">
+    <div id="salse-overview">
+      <apx-chart [series]="salesOverview.series" [chart]="salesOverview.chart" [legend]="salesOverview.legend"
+        [grid]="salesOverview.grid" [fill]="salesOverview.fill" [tooltip]="salesOverview.tooltip"
+        [colors]="salesOverview.colors" [plotOptions]="salesOverview.plotOptions"
+        [dataLabels]="salesOverview.dataLabels" [yaxis]="salesOverview.yaxis" [xaxis]="salesOverview.xaxis"
+        [stroke]="salesOverview.stroke" [responsive]="salesOverview.responsive">
+      </apx-chart>
+    </div>
+  </div>
+</div>

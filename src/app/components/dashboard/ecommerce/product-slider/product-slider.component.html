@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body product-slider">
+    <div class="row align-items-center">
+      <div class="col-sm-6">
+        <div class="product-page-main p-0">
+          <div class="row">
+            <ks-carousel [id]="101" [images]="imagesRect">
+            </ks-carousel>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="product-details my-4"><a [routerLink]="['/ecommerce/product-page']">
+            <h4 class="text-truncate">Women’s Fit and Flare Knee length one Piece Dress </h4>
+          </a>
+          <h3 class="font-primary">$126</h3>
+          <h5>Select size:</h5>
+          <ul class="product-size">
+            <li>S </li>
+            <li>M </li>
+            <li>L </li>
+            <li>XL</li>
+          </ul>
+          <h5>Colour:</h5>
+          <ul class="product-color">
+            <li class="border-primary"><span class="bg-primary"> <i class="icon-check"></i></span></li>
+            <li class="border-secondary"><span class="bg-secondary"> </span></li>
+            <li class="border-warning"><span class="bg-warning"> </span></li>
+            <li class="border-tertiary"><span class="bg-tertiary"></span></li>
+          </ul>
+          <div class="discount-box">
+            <h6>Special Discount </h6>
+          </div>
+          <h3 class="text-truncate">Deal of the Day From <span class="font-secondary">$48 </span></h3>
+          <div class="countdown" id="clock-arrival" data-hours="1" data-minutes="2" data-seconds="3">
+            <ul>
+              <li><span class="days time" id="days"></span><span class="title">Days</span></li>
+              <li><span class="hours time" id="hours"></span><span class="title">Hours</span></li>
+              <li class="px-3"><span class="minutes time" id="minutes"></span><span class="title">Min</span></li>
+              <li class="px-3"><span class="seconds time" id="seconds"></span><span class="title">Sec</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

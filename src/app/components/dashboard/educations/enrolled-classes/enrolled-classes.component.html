@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Enrolled Classes</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown11" type="button" (click)="isShow =!isShow">
+          <i class="icon-more-alt"></i></button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body pt-0 pb-1">
+    <ul class="enrolled-class">
+      @for (item of enrolledClasses; track item) {
+      <li class="d-flex align-items-center gap-2">
+        <span class="b-{{item.color}} bg-{{item.color}}"></span>
+        <div class="flex-grow-1"> <a href="">
+            <h5 class="text-truncate">{{item.title}} </h5>
+          </a>
+          <p>{{item.time}}</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="dropdown icon-dropdown">
+            <button class="btn dropdown-toggle" id="userdropdown12" type="button" (click)="open(item.id)">
+              <i class="icon-angle-right"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" [class.show]="item.id == openId">
+              <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+              <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+              <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
+</div>

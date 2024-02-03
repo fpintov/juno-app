@@ -1,0 +1,51 @@
+<div class="product-upload">
+  <p>Product Image </p>
+  <form class="dropzone dropzone-light bg-light-primary" id="multiFileUpload">
+    <ngx-dropzone ngx-dropzone [accept]="'image/*'" (change)="onImage($event)">
+      <ngx-dropzone-label>
+        <div class="dz-message needsclick">
+          <app-comman-svg-icon [icon]="'file-upload'"></app-comman-svg-icon>
+          <h5>Drag your image here, or <a class="txt-primary" href="javascript:void(0)">browser</a></h5><span
+            class="note needsclick">SVG,PNG,JPG or GIF</span>
+        </div>
+      </ngx-dropzone-label>
+      @for (f of image; track f) {
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [file]="f" [removable]="true"
+        (removed)="onRemoveImage(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+      }
+    </ngx-dropzone>
+  </form>
+</div>
+<div class="product-upload">
+  <p>Product Gallery</p>
+  <form class="dropzone dropzone-light bg-light-primary" id="multiFileUpload">
+    <ngx-dropzone (change)="ongallery($event)">
+      <ngx-dropzone-label>
+        <div class="dz-message needsclick">
+          <app-comman-svg-icon [icon]="'file-upload1'"></app-comman-svg-icon>
+          <h5>Drag files here</h5><span class="note needsclick">Add Product Gallery Images</span>
+        </div>
+      </ngx-dropzone-label>
+      @for (f of gallery; track f) {
+      <ngx-dropzone-preview [removable]="true" (removed)="onRemovegallery(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+      }
+    </ngx-dropzone>
+  </form>
+</div>
+<div class="product-buttons">
+  <button class="btn me-2" (click)="previous()">
+    <div class="d-flex align-items-center gap-sm-2 gap-1">
+      <app-comman-svg-icon [icon]="'back-arrow'"></app-comman-svg-icon>
+      Previous
+    </div>
+  </button>
+  <button class="btn" (click)="next()">
+    <div class="d-flex align-items-center gap-sm-2 gap-1">Next
+      <app-comman-svg-icon [icon]="'front-arrow'"></app-comman-svg-icon>
+    </div>
+  </button>
+</div>

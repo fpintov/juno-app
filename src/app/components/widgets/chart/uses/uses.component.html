@@ -1,0 +1,31 @@
+<div class="small-chart-widget chart-widgets-small">
+  <div class="card">
+    <div class="card-header">
+      <h4>Uses</h4>
+      <div class="card-header-right">
+        <ul class="list-unstyled card-option">
+          <li><i class="fa fa-spin fa-cog"></i></li>
+          <li><i class="view-html fa fa-code"></i></li>
+          <li><i class="icofont icofont-maximize full-card"></i></li>
+          <li><i class="icofont icofont-minus minimize-card"></i></li>
+          <li><i class="icofont icofont-refresh reload-card"></i></li>
+          <li><i class="icofont icofont-error close-card"></i></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="chart-container">
+        <div class="row">
+          <div class="col-12">
+            <div id="chart-widget9">
+              <apx-chart [chart]="usesChart.chart" [dataLabels]="usesChart.dataLabels" [series]="usesChart.series"
+                [fill]="usesChart.fill" [colors]="usesChart.colors" [title]="usesChart.title" [xaxis]="usesChart.xaxis"
+                [yaxis]="usesChart.yaxis">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

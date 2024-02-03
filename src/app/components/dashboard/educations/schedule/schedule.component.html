@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header card-no-border pb-0">
+        <div class="header-top">
+            <h4>Schedule</h4>
+            <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+                <button class="btn dropdown-toggle" id="userdropdown19" type="button" (click)="isShow = !isShow">
+                    <i class="icon-more-alt"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+                    <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body schedult-calendar py-0">
+        <div id="schedulechart">
+         <apx-chart [series]="schedule.series" 
+         [chart]="schedule.chart" 
+         [plotOptions]="schedule.plotOptions" 
+         [dataLabels]="schedule.dataLabels" 
+         [xaxis]="schedule.xaxis"
+         [yaxis]="schedule.yaxis" 
+         [grid]="schedule.grid"
+         [responsive]="schedule.responsive">
+        </apx-chart>
+        </div>
+    </div>
+</div>

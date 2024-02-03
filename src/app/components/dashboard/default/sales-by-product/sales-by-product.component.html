@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-header card-no-border pb-0">
+      <div class="header-top">
+        <h4>Sales by Product</h4>
+        <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+          <button class="btn dropdown-toggle" id="userdropdown15" type="button" (click)="isShow = !isShow">
+            <i class="icon-more-alt"></i>
+           </button>
+          <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+            <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body sales-product px-0 pb-0">
+      <div class="table-responsive theme-scrollbar">
+        <table class="table display" style="width:100%">
+          <thead>
+            <tr>
+              <th>Files Name</th>
+              <th>Amount</th>
+              <th>% Sold</th>
+              <th>Progressbar</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of salesByProduct; track item) {
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="flex-shrink-0">
+                    <img [src]="item.image" alt=""></div>
+                  <div class="flex-grow-1">
+                    <a [routerLink]="['/ecommerce/product-list']">
+                      <h5>{{item.fileName}}</h5>
+                    </a>
+                </div>
+                </div>
+              </td>
+              <td> $ {{item.amount}}</td>
+              <td> {{item.Sold}}%</td>
+              <td>
+                <div class="progress progress-striped-{{item.progressClass}} b-r-2">
+                  <div class="progress-bar" role="progressbar" [style.width]="item.width">
+                  </div>
+                </div>
+              </td>
+            </tr>
+          }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

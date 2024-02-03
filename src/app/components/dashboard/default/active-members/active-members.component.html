@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Active Members</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown13" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body active-members px-0 pb-0">
+    <div class="table-responsive theme-scrollbar">
+      <table class="table display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Member Profile</th>
+            <th>Today’s hrours</th>
+            <th class="text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of activeMembers; track item) {
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img [src]="item.image" alt="">
+                </div>
+                <div class="flex-grow-1">
+                  <a [routerLink]="['/ecommerce/products']">
+                    <h5>{{item.name}}</h5>
+                  </a><span>{{item.desc}}</span>
+                </div>
+              </div>
+            </td>
+            <td> {{item.hour}} hours</td>
+            <td>
+              <p
+                class="members-box background-light-{{item.font}} text-center b-light-{{item.font}} font-{{item.font}}">
+                {{item.status}}</p>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="card pie-chart-card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Revenue By Category</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown8" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body revenue-category">
+    <div id="pie-chart">
+      <apx-chart [legend]="revenueByCategory.legend" [series]="revenueByCategory.series"
+        [chart]="revenueByCategory.chart" [labels]="revenueByCategory.labels"
+        [dataLabels]="revenueByCategory.dataLabels" [states]="revenueByCategory.states"
+        [stroke]="revenueByCategory.stroke" [colors]="revenueByCategory.colors"
+        [responsive]="revenueByCategory.responsive">
+      </apx-chart>
+    </div>
+  </div>
+</div>

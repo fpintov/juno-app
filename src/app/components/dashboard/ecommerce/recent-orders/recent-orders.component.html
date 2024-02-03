@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="card-header card-no-border">
+    <div class="header-top">
+      <h4>Recent Orders</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body pt-0 recent-orders px-0">
+    <div class="table-responsive theme-scrollbar">
+      <div class="dataTables_wrapper no-footer">
+        <table class="table display dataTable no-footer" id="recent-orders" style="width:100%">
+          <thead>
+            <tr>
+              <th>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label"></label>
+                </div>
+              </th>
+              <th>Recent Orders</th>
+              <th>Order Date</th>
+              <th>QTY</th>
+              <th>Customer</th>
+              <th>Price </th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of recentOrders; track item) {
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label"></label>
+                </div>
+              </td>
+              <td>
+                @for (items of item.order; track items) {
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="flex-shrink-0">
+                      <img [src]="items.image" alt="">
+                    </div>
+                    <div class="flex-grow-1">
+                      <a [routerLink]="['/ecommerce/checkout']">
+                        <h6>{{items.title}}</h6>
+                      </a>
+                    </div>
+                  </div>
+                }
+              </td>
+              <td>{{item.orderDate}} - {{item.orderTime}}</td>
+              <td>QTY:{{item.oty}}</td>
+              @for (user of item.customer; track user) {
+                <td class="customer-img">
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="flex-shrink-0">
+                      <img [src]="user.image" alt="">
+                    </div>
+                    <div class="flex-grow-1">
+                      <h6>{{user.name}}</h6>
+                    </div>
+                  </div>
+                </td>
+              }
+              <td>
+                <p>${{item.price }}</p>
+              </td>
+              <td>
+                <div class="status-box">
+                  <div class="btn background-light-{{item.class}} font-{{item.class}} f-w-500">{{item.status}}</div>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

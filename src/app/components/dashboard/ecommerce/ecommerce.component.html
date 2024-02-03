@@ -1,0 +1,37 @@
+<div class="container-fluid dashboard-3">
+  <div class="row">
+    <div class="col-xl-3 col-sm-6">
+      <app-comman-chart [item]="totalSells" [chatData]="TotalSellsChart"></app-comman-chart>
+    </div>
+    <div class="col-xl-3 col-sm-6">
+      <app-comman-chart [item]="dailyOrders" [chatData]="dailyOrdersChart"></app-comman-chart>
+    </div>
+    <div class="col-xl-3 col-sm-6">
+      <app-comman-chart [item]="ordersValue" [chatData]="ordersValueChart"></app-comman-chart>
+    </div>
+    <div class="col-xl-3 col-sm-6">
+      <app-comman-chart [item]="dailyRevenue" [chatData]="dailyRevenueChart"></app-comman-chart>
+    </div>
+    <div class="col-xxl-7 col-xl-8 col-sm-12">
+      <app-recent-orders></app-recent-orders>
+    </div>
+    <div class="col-xxl-5 col-xl-4 col-lg-7 col-sm-12">
+      <app-sales-overview></app-sales-overview>
+    </div>
+    <div class="col-xl-3 col-lg-5 col-sm-6">
+      <app-recent-customers></app-recent-customers>
+    </div>
+    <div class="col-xl-3 col-lg-5 col-sm-6">
+      <app-revenue-by-category></app-revenue-by-category>
+    </div>
+    <div class="col-xl-6 col-lg-7 col-sm-12">
+      <app-user-by-continent></app-user-by-continent>
+    </div>
+    <div class="col-xl-6 col-lg-12">
+      <app-product-slider></app-product-slider>
+    </div>
+    <div class="col-xl-6 col-lg-12">
+      <app-top-seller></app-top-seller>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Sales Statistic</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown14" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body sale-statistic">
+    <div class="row">
+      @for (item of Statistic; track item) {
+      <div class="col-3 statistic-icon">
+        <div class="light-card balance-card widget-hover">
+          <div class="icon-box">
+            <img [src]="item.image" alt="">
+          </div>
+          <div> <span class="f-w-500 f-light">{{item.title}}</span>
+            <h5 class="mt-1 mb-0">{{item.point}}</h5>
+          </div>
+          <div class="ms-auto text-end">
+            <div class="dropdown icon-dropdown">
+              <button class="btn dropdown-toggle" id="incomedropdown" type="button" (click)="open(item.id)">
+                <i class="icon-more-alt"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end"  [class.show]="opneId == item.id">
+                <a class="dropdown-item" href="javascript:void(0)">Today</a>
+                <a class="dropdown-item" href="javascript:void(0)">Tomorrow</a>
+                <a class="dropdown-item" href="javascript:void(0)">Yesterday </a>
+              </div>
+            </div>
+            <span [ngClass]="item.id ==2 ?'font-danger' :'font-success'" class="f-w-600">{{item.percentage}}</span>
+          </div>
+        </div>
+      </div>
+    }
+    </div>
+    <div id="chart-dash-2-line">
+      <apx-chart [series]="chartData.series" [chart]="chartData.chart" [stroke]="chartData.stroke"
+        [grid]="chartData.grid" [fill]="chartData.fill" [labels]="chartData.labels" [markers]="chartData.markers"
+        [responsive]="chartData.responsive" [tooltip]="chartData.tooltip" [annotations]="chartData.annotations"
+        [legend]="chartData.legend" [colors]="chartData.colors" [xaxis]="chartData.xaxis" [fill]="chartData.fill"
+        [yaxis]="chartData.yaxis">
+      </apx-chart>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header card-no-border pb-0">
+      <div class="header-top">
+        <h4>Customer Transaction</h4>
+        <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+          <button class="btn dropdown-toggle" id="userdropdown11" type="button" (click)="isShow = !isShow">
+            <i class="icon-more-alt"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+            <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+            <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body pb-0">
+      <div id="customer-transaction">
+        <apx-chart 
+        [series]="customerTransaction.series" 
+        [chart]="customerTransaction.chart" 
+        [markers]="customerTransaction.markers" 
+        [plotOptions]="customerTransaction.plotOptions"
+        [grid]="customerTransaction.grid" 
+        [legend]="customerTransaction.legend" 
+        [dataLabels]="customerTransaction.dataLabels"
+        [stroke]="customerTransaction.stroke"
+        [colors]="customerTransaction.colors"
+        [tooltip]="customerTransaction.tooltip"
+        [xaxis]="customerTransaction.xaxis"
+        [yaxis]="customerTransaction.yaxis"
+        [responsive]="customerTransaction.responsive">
+      </apx-chart>
+      </div>
+    </div>
+  </div>

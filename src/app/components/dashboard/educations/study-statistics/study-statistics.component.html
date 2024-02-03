@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>Study Statistics</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown" type="button" (click)="isShow =!isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="studay-statistics">
+      <ul class="d-flex align-item-center gap-2">
+        <li> <span class="bg-primary"> </span>UX Design</li>
+        <li> <span class="bg-secondary"> </span>Illustrations</li>
+      </ul>
+    </div>
+    <div id="study-statistics">
+      <apx-chart [series]="studyStatistics.series" [chart]="studyStatistics.chart"
+        [dataLabels]="studyStatistics.dataLabels" [colors]="studyStatistics.colors" [stroke]="studyStatistics.stroke"
+        [grid]="studyStatistics.grid" [fill]="studyStatistics.fill" [annotations]="studyStatistics.annotations"
+        [yaxis]="studyStatistics.yaxis" [xaxis]="studyStatistics.xaxis" [legend]="studyStatistics.legend"
+        [responsive]="studyStatistics.responsive">
+      </apx-chart>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="card overflow-hidden">
+  <div class="card-header card-no-border pb-0">
+    <div class="header-top">
+      <h4>User by Continent</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown9" type="button" (click)="isShow =!isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body user-continent pb-0">
+    <div class="user-map-menu d-flex align-items-center gap-5">
+      <div class="user-items">
+        <h5>1,506<span>items</span></h5>
+        <div class="progress">
+          @for (item of itemsProgress; track item) {
+          <div class="progress-bar bg-{{item.class}}" role="progressbar" [style.width]="item.width"></div>
+          }
+        </div>
+      </div>
+      <div class="map-items">
+        <ul class="d-flex align-items-center gap-3">
+          <li>
+            <h5><span class="bg-primary"></span>Keyboard</h5>
+            <p class="mb-0">651</p>
+          </li>
+          <li>
+            <h5><span class="bg-secondary"></span>Laptops</h5>
+            <p class="mb-0">345</p>
+          </li>
+          <li>
+            <h5><span class="bg-warning"></span>Desktop</h5>
+            <p class="mb-0">654</p>
+          </li>
+          <li>
+            <h5><span class="bg-tertiary"></span>Mouse</h5>
+            <p class="mb-0">954</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="contries-sale d-flex gap-4">
+      <div class="map-value">
+        <h5>All Over Contries's Sale</h5>
+        <ul>
+          @for (item of contriesSale; track item) {
+          <li>
+            <div class="d-flex gap-2">
+              <div class="flex-shrink-0">
+                <app-comman-svg-icon [class]="item.class" [icon]="item.icon"></app-comman-svg-icon>
+              </div>
+              <div class="flex-grow-1">
+                <h6>{{item.countery}}</h6>
+              </div><span>{{item.percentage}}%</span>
+            </div>
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="map">
+        <div class="jvector-map-height" leaflet [leafletOptions]="options1">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

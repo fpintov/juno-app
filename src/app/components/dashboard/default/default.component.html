@@ -1,0 +1,42 @@
+<div class="container-fluid default-dashboard">
+    <div class="row widget-grid">
+        <div class="col-xl-5 col-md-6 proorder-xl-1 proorder-md-1">
+            <div class="card profile-greeting p-0">
+                <div class="card-body">
+                    <div class="img-overlay">
+                        <h1 class="mt-0">Good day, Lena Miller</h1>
+                        <p>Welcome to the Mofi family! We are delighted that you have visited our dashboard.</p>
+                        <a class="btn" [routerLink]="['/dashboard/default']" [queryParams]="{majnu:'laila'}">Go Premium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 proorder-xl-2 proorder-md-2">
+            <app-opening-of-leaflets></app-opening-of-leaflets>
+        </div>
+        <div class="col-xl-4 col-md-5 proorder-xl-3 proorder-md-3">
+            <app-shifts-overview></app-shifts-overview>
+        </div>
+        <div class="col-xl-7 proorder-xl-5 box-col-7 proorder-md-5"> 
+            <app-projects-data-table></app-projects-data-table>
+        </div>
+        <div class="col-xl-5 col-md-7 proorder-xl-4 box-col-5 proorder-md-6">
+            <app-customer-transaction></app-customer-transaction>
+        </div>
+        <div class="col-xxl-3 col-xl-6 col-md-5 box-col-6 proorder-xl-6 proorder-md-7">
+            <app-notifications></app-notifications>
+        </div>
+        <div class="col-xxl-5 col-xl-6 box-col-6 proorder-xl-7 proorder-md-8">
+            <app-upcoming-appointments></app-upcoming-appointments>
+        </div>
+        <div class="col-xxl-4 col-xl-5 col-md-7 box-col-5 proorder-xl-10 proorder-md-4">
+            <app-active-members></app-active-members>
+        </div>
+        <div class="col-xxl-7 col-xl-12 box-col-12 proorder-xl-8 proorder-md-9">
+            <app-sales-statistic></app-sales-statistic>
+        </div>
+        <div class="col-xxl-5 col-xl-7 box-col-7 proorder-xl-9 proorder-md-10">
+            <app-sales-by-product></app-sales-by-product>
+        </div>
+    </div>
+</div>

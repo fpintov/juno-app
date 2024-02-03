@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header card-no-border pb-0">
+        <div class="header-top">
+            <h4>Notifications</h4>
+            <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+                <button class="btn dropdown-toggle" id="userdropdown12" type="button" (click)="isShow = !isShow">
+                    <i class="icon-more-alt"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+                    <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <ul class="notification-box">
+            @for (item of Notifications; track item) {
+            <li class="d-flex">
+                <div class="flex-shrink-0 bg-{{item.bgColor}}">
+                    <img [src]="item.imager" alt="Wallet">
+                </div>
+                <div class="flex-grow-1">
+                    <a [routerLink]="['/chat/private-chat']">
+                        <h5>{{item.title}}</h5>
+
+                    </a>
+                    <p class="text-truncate">{{item.desc}}</p>
+                </div><span>{{item.date}}</span>
+            </li>
+            }
+        </ul>
+    </div>
+</div>

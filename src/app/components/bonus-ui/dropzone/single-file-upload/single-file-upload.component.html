@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Single File Upload</h4>
+    <p class="f-m-light mt-1"></p>Use the <code>.dropzone </code> class through create upload
+    files.<code>[https://www.dropzone.dev/].</code>
+  </div>
+  <div class="card-body">
+    <form class="dropzone bg-light-prima  ry" id="singleFileUpload" action="/upload.php">
+      <div class="dropzone-wrapper">
+        <ngx-dropzone [multiple]="false" (change)="onSelect($event)">
+          <ngx-dropzone-label>
+            <div class="dropzone-wrapper">
+              <div class="dz-message needsclick"><i class="icon-cloud-up"></i>
+                <h4 class="f-w-700">Drop files here or click to upload.</h4><span class="note needsclick">(This is just
+                  a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+              </div>
+            </div>
+          </ngx-dropzone-label>
+          @for (f of files; track f) {
+          <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+          }
+        </ngx-dropzone>
+      </div>
+    </form>
+  </div>
+</div>

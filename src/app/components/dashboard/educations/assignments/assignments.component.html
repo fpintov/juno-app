@@ -1,0 +1,87 @@
+<div class="card">
+  <div class="card-header card-no-border">
+    <div class="header-top">
+      <h4>Assignments</h4>
+      <div class="dropdown icon-dropdown" (clickOutside)="clickOutside()">
+        <button class="btn dropdown-toggle" id="userdropdown1" type="button" (click)="isShow = !isShow">
+          <i class="icon-more-alt"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" [class.show]="isShow">
+          <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+          <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body pt-0 assignments-table px-0">
+    <div class="table-responsive theme-scrollbar">
+      <div class="dataTables_wrapper no-footer">
+        <table class="table display dataTable no-footer" id="assignments-table" style="width:100%">
+          <thead>
+            <tr>
+              <th>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label"></label>
+                </div>
+              </th>
+              <th>Id no </th>
+              <th>Teacher</th>
+              <th>Subject </th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Progress</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of Assignments; track item) {
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label"></label>
+                </div>
+              </td>
+              <td> <span>{{item.id}}</span></td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="flex-shrink-0">
+                    <img [src]="item.image" alt="">
+                  </div>
+                  <div class="flex-grow-1 ms-2"><a [routerLink]="['/ecommerce/product-page']">
+                      <h6>{{item.teacher}}</h6>
+                    </a></div>
+                  <div class="active-status active-online"></div>
+                </div>
+              </td>
+              <td>{{item.subject}}</td>
+              <td>{{item.startDate}}</td>
+              <td>{{item.endDate}}</td>
+              <td>
+                <div class="progress-showcase">
+                  <div class="progress sm-progress-bar progress-border-{{item.progressColor}}">
+                    <div class="progress-bar" role="progressbar" [style.width]="item.percentages"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center">
+                <div class="dropdown icon-dropdown">
+                  <button class="btn dropdown-toggle" type="button" (click)="open(item.id)">
+                    <i class="icon-more-alt"></i></button>
+                  <div class="dropdown-menu dropdown-menu-end dropdown-bottom" [class.show]="item.id === openId">
+                    <a class="dropdown-item" href="javascript:void(0)">Weekly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Monthly</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Yearly</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
